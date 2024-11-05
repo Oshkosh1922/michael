@@ -19,3 +19,16 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Prevent overflow */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  width: 100vw; /* Ensures it doesn’t extend beyond the viewport */
+}
+html {
+  scroll-behavior: smooth;
+}
+.sectionWrapper {
+  margin-bottom: 4rem; /* Adjust as needed for comfortable spacing */
+}
