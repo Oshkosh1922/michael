@@ -106,4 +106,66 @@
       font-size: 1.5rem;
     }
   }
+  .carouselContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .floatingTitle {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .floatingTitle span {
+    display: inline-block;
+    transition: color 0.7s, -webkit-text-stroke 0.7s;
+  }
+  
+  .highlightWord {
+    color: #4a76a8;
+    font-weight: bold;
+  }
+  
+  .outlineWord {
+    color: transparent;
+    -webkit-text-stroke: 1px #3e8480;
+  }
+  .floatingTitleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .titleLine {
+    font-size: 2.5rem;
+    color: #4aa19d;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .highlightWord {
+    color: transparent;
+    -webkit-text-stroke: 1px #41ad94;
+    transition: color 3s, -webkit-text-stroke 3s;
+  }
+  
+  .titleLine span {
+    color: #3e8480; /* Default color for non-highlighted words */
+  }
   

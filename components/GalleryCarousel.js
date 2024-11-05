@@ -1,6 +1,8 @@
+// components/GalleryCarousel.js
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image'; // Import Next.js Image component
+import Image from 'next/image';
 import styles from './GalleryCarousel.module.css';
+import FloatingTitle from './FloatingTitle'; // Import the animated title component
 
 const images = [
   '/artwork/Untitled_Artwork.png',
@@ -40,8 +42,10 @@ export default function GalleryCarousel() {
 
   return (
     <section className={styles.carouselContainer}>
-      <h2 className={styles.title}>My Art</h2>
-      
+      {/* Animated Title */}
+      <FloatingTitle />
+
+      {/* Carousel */}
       <div
         className={styles.carousel}
         ref={carouselRef}
@@ -58,13 +62,12 @@ export default function GalleryCarousel() {
             className={styles.imageWrapper}
             onClick={() => handleImageClick(src)}
           >
-            {/* Replace <img> with <Image /> */}
             <Image
               src={src}
               alt={`Artwork ${index + 1}`}
               className={styles.image}
-              width={500} // Replace with actual width
-              height={500} // Replace with actual height
+              width={500}
+              height={500}
             />
           </div>
         ))}
@@ -77,8 +80,8 @@ export default function GalleryCarousel() {
             src={lightbox.src}
             alt="Artwork"
             className={styles.lightboxImage}
-            width={800} // Adjust width for lightbox
-            height={800} // Adjust height for lightbox
+            width={800}
+            height={800}
           />
         </div>
       )}

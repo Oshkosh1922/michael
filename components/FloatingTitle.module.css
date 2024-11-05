@@ -1,0 +1,53 @@
+/* FloatingTitle.module.css */
+
+.titleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  
+  .titleWord {
+    display: inline-block;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    color: transparent;
+    -webkit-text-stroke: 1px #2a2a2a; /* Outline effect */
+    margin: 0 0.3rem;
+    transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
+  }
+  
+  .accent {
+    color: #4a90e2; /* Soft, masculine blue tone for "My" and "Mind" */
+    -webkit-text-stroke: 0; /* Filled text for accents */
+    font-weight: bold;
+  }
+  
+  .titleContainer .titleWord:hover {
+    color: #4a90e2; /* Hover effect to match the accent color */
+    -webkit-text-stroke: 0;
+    transform: scale(1.1);
+  }
+  
+  .titleWord.visible {
+    color: #4a90e2; /* Final color after scrolling into view */
+    -webkit-text-stroke: 0;
+  }
+  
+  /* Subtle animation for scrolling into view */
+  @keyframes fillColor {
+    from {
+      color: transparent;
+      -webkit-text-stroke: 1px #2a2a2a;
+    }
+    to {
+      color: #4a90e2;
+      -webkit-text-stroke: 0;
+    }
+  }
+  
