@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image'; // Import Next.js Image component
 import styles from './GalleryCarousel.module.css';
 
 const images = [
@@ -57,7 +58,14 @@ export default function GalleryCarousel() {
             className={styles.imageWrapper}
             onClick={() => handleImageClick(src)}
           >
-            <img src={src} alt={`Artwork ${index + 1}`} className={styles.image} />
+            {/* Replace <img> with <Image /> */}
+            <Image
+              src={src}
+              alt={`Artwork ${index + 1}`}
+              className={styles.image}
+              width={500} // Replace with actual width
+              height={500} // Replace with actual height
+            />
           </div>
         ))}
       </div>
@@ -65,7 +73,13 @@ export default function GalleryCarousel() {
       {/* Lightbox */}
       {lightbox.open && (
         <div className={styles.lightbox} onClick={() => setLightbox({ open: false, src: '' })}>
-          <img src={lightbox.src} alt="Artwork" className={styles.lightboxImage} />
+          <Image
+            src={lightbox.src}
+            alt="Artwork"
+            className={styles.lightboxImage}
+            width={800} // Adjust width for lightbox
+            height={800} // Adjust height for lightbox
+          />
         </div>
       )}
     </section>

@@ -119,10 +119,14 @@ function BackgroundGradient() {
 export default function Hero() {
   const [message, setMessage] = useState(null);
   const [screenPosition, setScreenPosition] = useState({ x: 0, y: 0 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useEffect(() => {
     if (message) {
-      // Auto-dismiss message after 2 seconds
       const timeout = setTimeout(() => {
         setMessage(null);
       }, 2000);
@@ -146,12 +150,14 @@ export default function Hero() {
     <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
       <BackgroundGradient />
 
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 75 }}
-        style={{ position: 'absolute', width: '100%', height: '100%' }}
-      >
-        <ParticleScene onParticleClick={handleParticleClick} />
-      </Canvas>
+      {isClient && (
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
+        >
+          <ParticleScene onParticleClick={handleParticleClick} />
+        </Canvas>
+      )}
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -168,7 +174,7 @@ export default function Hero() {
         }}
       >
         <h1 style={{ fontSize: 'calc(2.5rem + 2vw)', margin: 0, textShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
-          Welcome to Michael's Portfolio
+          Welcome to Michael&apos;s Portfolio
         </h1>
         <p style={{ fontSize: 'calc(1rem + 1vw)', marginTop: '10px', maxWidth: '600px', textShadow: '0 0 5px rgba(0, 0, 0, 0.2)' }}>
           Your gateway to creativity and code
@@ -189,7 +195,7 @@ export default function Hero() {
               top: screenPosition.y,
               transform: 'translate(-50%, -50%)',
               background: 'rgba(255, 255, 255, 0.3)',
-              backdropFilter: 'blur(8px)', // Frosted glass effect
+              backdropFilter: 'blur(8px)',
               padding: '15px 25px',
               borderRadius: '12px',
               boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)',
@@ -208,12 +214,3 @@ export default function Hero() {
     </div>
   );
 }
-<div style={{
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  width: '100%',
-  height: '10vh',
-  background: 'linear-gradient(transparent, #f0e5e6)', // Fades into the About section background
-  zIndex: -1,
-}} />
